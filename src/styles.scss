@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+//Variáveis
+$prim-color: hsl(221, 37%, 45%);
+$sec-color: hsl(34, 77%, 69%);
+$sec-hover: hsl(34, 90%, 59%);
+$text-light: hsl(0, 0, 98);
+$text-dark: hsl(224, 31%, 21%);
+
+//Geral
+* {
+  box-sizing: border-box;
+  margin: 0;
+
+  &:focus {
+    outline: 2px solid $prim-color;
+  }
+}
+
+
+//Fontes
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+

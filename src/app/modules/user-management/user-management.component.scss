@@ -1,0 +1,42 @@
+@use '../../../styles.scss' as *;
+
+.container {
+  border: solid black 1px; //somente para visualização da área
+}
+
+.container h1 {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background-color: $prim-color;
+  color: $text-light;
+}
+
+.fa-gear {
+  font-size: 1.5rem;
+  margin-inline: 0.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+.search-bar {
+  display: flex;
+}
+
+.text-box {
+  padding: 4px;
+  border: none;
+  border-radius: 4px 0px 0px 4px;
+  background-color: hsl(0, 0%, 87%);
+  min-width: 220px;
+
+  &:focus {
+    background-color: hsl(0, 0%, 96%);
+  }
+}

@@ -1,1 +1,3 @@
-<button>button works!</button>
+<button [id]="id" class="action-button roboto-medium">
+  <i *ngIf="iconClass" [class]="iconClass"></i> {{ text }}
+</button>
