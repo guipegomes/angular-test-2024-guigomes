@@ -3,9 +3,9 @@
     <nav>
       <div class="search-bar">
         <input class="text-box roboto-regular" type="text" placeholder="Pesquisar usuário...">
-        <app-button text="Search" id="search-button"></app-button>
+        <app-button text="Search" id="search-button" (click)="searchUser()"></app-button>
       </div>
-      <app-button text="Add New user" iconClass="fa fa-plus" id="add-user-button" ></app-button>
+      <app-button text="Add New user" iconClass="fa fa-plus" id="add-user-button" (click)="addUser()"></app-button>
     </nav>
 </header>
 
@@ -18,13 +18,33 @@
   </div>
 
   <div class="list-items roboto-regular">
-    <div *ngFor="let user of users" class="list-item">
-      <span>{{ user.id }}</span>
+    <div *ngFor="let user of users; let i = index" class="list-item">
+      <span class="roboto-bold">{{ user.id }}</span>
       <span>{{ user.username }}</span>
       <span>{{ user.name }}</span>
       <span>{{ user.email }}</span>
-      <span><button class="button-more roboto-bold">More</button></span>
-      <span class="column-manage"><button class="button-edit"><i class="fa fa-edit"></i></button><button class="button-trash"><i class="fa fa-trash"></i></button></span>
+      <span>
+        <button class="button-more roboto-bold" (click)="toggleDetails(i)">More</button>
+      </span>
+      <span class="column-manage">
+        <button class="button-edit" (click)="editUser()"><i class="fa fa-edit"></i></button>
+        <button class="button-trash" (click)="confirmDelete(user.username)"><i class="fa fa-trash"></i></button>
+      </span>
+
+      <div class="user-details" [ngClass]="{'expanded': isDetailed(i)}">
+        <div class="detail">
+          <p class="roboto-bold">Phone</p>
+          <span>{{ user.phone }}</span>
+        </div>
+        <div class="detail">
+          <p class="roboto-bold">Website</p>
+          <span>{{ user.website }}</span>
+        </div>
+        <div class="detail">
+          <p class="roboto-bold">City</p>
+          <span>{{ user.address.city }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </main>
