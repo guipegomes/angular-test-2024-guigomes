@@ -2,7 +2,7 @@
     <h1 class="roboto-bold"><i class="fa fa-gear"></i>{{ title }}</h1>
     <nav>
       <div class="search-bar">
-        <input class="text-box roboto-regular" type="text" placeholder="Pesquisar usuário...">
+        <input class="text-box roboto-regular" type="text" placeholder="Search user...">
         <app-button text="Search" id="search-button" (click)="searchUser()"></app-button>
       </div>
       <app-button text="Add New user" iconClass="fa fa-plus" id="add-user-button" (click)="addUser()"></app-button>
@@ -27,8 +27,12 @@
         <button class="button-more roboto-bold" (click)="toggleDetails(i)">More</button>
       </span>
       <span class="column-manage">
-        <button class="button-edit" (click)="editUser()"><i class="fa fa-edit"></i></button>
-        <button class="button-trash" (click)="confirmDelete(user.username)"><i class="fa fa-trash"></i></button>
+        <button class="button-edit" (click)="editUser()">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="button-trash" (click)="confirmDelete(user)">
+          <i class="fa fa-trash"></i>
+        </button>
       </span>
 
       <div class="user-details" [ngClass]="{'expanded': isDetailed(i)}">

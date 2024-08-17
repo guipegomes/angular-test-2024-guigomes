@@ -53,18 +53,30 @@ export class UserManagementComponent implements OnInit {
     alert('Ação de editar clicada.')
   }
 
-  confirmDelete(userName: string) {
-    const confirmar = prompt(`Ação de deletar clicada\n\nDigite "DELETE" para confirmar a exclusão do usuário ${userName}; Ou clique no botão 'Cancelar' para cancelar.`);
+  confirmDelete(user: User): void {
+    const confirmar = prompt(`Ação de deletar clicada\n\nDigite "DELETE" para confirmar a exclusão do usuário ${user.username}; Ou clique no botão 'Cancelar' para cancelar.`);
 
     if (confirmar === "DELETE") {
-      this.deleteUser();
+      this.dataService.deleteUser(user.id).subscribe({
+        next: () => {
+          this.deleteUserLocally(user.id);
+          alert(`${user.name} foi deletado localmente`);
+        },
+        error: (error) => {
+          console.error('Erro ao deletar usuário: ', error);
+          alert("Ocorreu um erro ao deletar o usuário. Operação não foi concluída.")
+        },
+        complete: () => {
+          alert("Ação de deletar concluída.")
+        }
+      })
     } else {
       alert("Ação de deletar cancelada.")
     }
 
   }
 
-  deleteUser() {
-    alert("Confirmação de deletar clicada")
+  private deleteUserLocally(userId: number): void {
+    this.users = this.users.filter(user => user.id !== userId);
   }
 }
