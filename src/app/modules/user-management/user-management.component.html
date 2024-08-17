@@ -1,12 +1,30 @@
-<header>
-  <div class="container">
+<header class="container">
     <h1 class="roboto-bold"><i class="fa fa-gear"></i>{{ title }}</h1>
     <nav>
       <div class="search-bar">
-        <input class="text-box" type="text" placeholder="Pesquisar usuário...">
+        <input class="text-box roboto-regular" type="text" placeholder="Pesquisar usuário...">
         <app-button text="Search" id="search-button"></app-button>
       </div>
       <app-button text="Add New user" iconClass="fa fa-plus" id="add-user-button" ></app-button>
     </nav>
-  </div>
 </header>
+
+<main class="main-container">
+  <div class="list-header roboto-bold">
+    <span>ID</span>
+    <span>Username</span>
+    <span>Name</span>
+    <span>Email</span>
+  </div>
+
+  <div class="list-items roboto-regular">
+    <div *ngFor="let user of users" class="list-item">
+      <span>{{ user.id }}</span>
+      <span>{{ user.username }}</span>
+      <span>{{ user.name }}</span>
+      <span>{{ user.email }}</span>
+      <span><button class="button-more roboto-bold">More</button></span>
+      <span class="column-manage"><button class="button-edit"><i class="fa fa-edit"></i></button><button class="button-trash"><i class="fa fa-trash"></i></button></span>
+    </div>
+  </div>
+</main>

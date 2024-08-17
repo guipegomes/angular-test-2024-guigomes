@@ -1,7 +1,12 @@
 @use '../../../styles.scss' as *;
 
+//Header============================================
 .container {
-  border: solid black 1px; //somente para visualização da área
+  width: 100%;
+  max-width: 1200px;
+  //min-width: 1024px;
+  margin: 0 auto;
+  background-color: white;
 }
 
 .container h1 {
@@ -21,8 +26,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .search-bar {
@@ -33,10 +37,79 @@ nav {
   padding: 4px;
   border: none;
   border-radius: 4px 0px 0px 4px;
-  background-color: hsl(0, 0%, 87%);
+  background-color: $gray-90;
   min-width: 220px;
 
   &:focus {
     background-color: hsl(0, 0%, 96%);
+  }
+}
+
+//Main==============================================
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  //min-width: 1024px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.list-header, .list-item {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 2fr 2fr 0.5fr 0.5fr;
+  padding: 10px;
+  border-bottom: 1px solid $gray-80;
+}
+
+.list-header {
+  font-weight: bold;
+  background-color: $prim-color;
+  color: $text-light;
+}
+
+.list-item {
+  color: $text-dark;
+  &:hover {
+    background-color: hsl(0, 0%, 96%);
+  }
+}
+
+main span {
+  flex: 1;
+  padding: 5px;
+}
+
+.button-more {
+  border: none;
+  background-color: $prim-color;
+  color: $text-light;
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+  &:hover {
+    color: $text-light;
+    background-color: $sec-hover;
+  }
+}
+
+.column-manage {
+  display: flex;
+
+  button {
+    border-radius: 50%;
+    border: none;
+    background-color: $gray-90;
+    cursor: pointer;
+    margin-inline: 1px;
+    color: $prim-color;
+  }
+  .button-trash:hover {
+      background-color: hsl(0, 78%, 52%);
+      color: $text-light;
+  }
+
+  .button-edit:hover {
+    background-color: hsl(120, 51%, 42%);
+    color: $text-light;
   }
 }

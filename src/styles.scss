@@ -6,6 +6,8 @@ $sec-color: hsl(34, 77%, 69%);
 $sec-hover: hsl(34, 90%, 59%);
 $text-light: hsl(0, 0, 98);
 $text-dark: hsl(224, 31%, 21%);
+$gray-80: hsl(0, 0%, 80%);
+$gray-90: hsl(0, 0%, 90%);
 
 //Geral
 * {
@@ -15,6 +17,10 @@ $text-dark: hsl(224, 31%, 21%);
   &:focus {
     outline: 2px solid $prim-color;
   }
+}
+
+body {
+  background-color: $gray-90;
 }
 
 
