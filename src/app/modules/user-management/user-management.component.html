@@ -5,7 +5,7 @@
         <input class="text-box roboto-regular" type="text" placeholder="Search user...">
         <app-button text="Search" id="search-button" (click)="searchUser()"></app-button>
       </div>
-      <app-button text="Add New user" iconClass="fa fa-plus" id="add-user-button" (click)="addUser()"></app-button>
+      <app-button text="New user" iconClass="fa fa-plus" id="add-user-button" (click)="setupModal(false, addUser)"></app-button>
     </nav>
 </header>
 
@@ -18,7 +18,7 @@
   </div>
 
   <div class="list-items roboto-regular">
-    <div *ngFor="let user of users; let i = index" class="list-item">
+    <div *ngFor="let user of usersDisplayed; let i = index" class="list-item">
       <span class="roboto-bold">{{ user.id }}</span>
       <span>{{ user.username }}</span>
       <span>{{ user.name }}</span>
@@ -27,7 +27,7 @@
         <button class="button-more roboto-bold" (click)="toggleDetails(i)">More</button>
       </span>
       <span class="column-manage">
-        <button class="button-edit" (click)="editUser()">
+        <button class="button-edit" (click)="setupModal(true, editUser, user)">
           <i class="fa fa-edit"></i>
         </button>
         <button class="button-trash" (click)="confirmDelete(user)">
@@ -51,4 +51,12 @@
       </div>
     </div>
   </div>
+
+  <div class="pagination">
+    <button *ngFor="let page of [].constructor(totalPages); let i = index" (click)="changePage(i+1)" class="roboto-bold" [class.active]="i+1 === currentPage">{{ i + 1 }}</button>
+  </div>
+
+  <app-user-modal *ngIf="action" [action]="action" [buttonText]="buttonText" [user]="modalUser || undefined" [isEdit]="isEdit" [iconClass]="iconClass"></app-user-modal>
 </main>
+
+

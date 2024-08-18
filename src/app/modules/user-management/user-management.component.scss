@@ -4,7 +4,7 @@
 .container {
   width: 100%;
   max-width: 1200px;
-  //min-width: 1024px;
+  min-width: 900px;
   margin: 0 auto;
   background-color: white;
 }
@@ -49,7 +49,7 @@ nav {
 .main-container {
   width: 100%;
   max-width: 1200px;
-  //min-width: 1024px;
+  min-width: 900px;
   margin: 0 auto;
   background-color: white;
 }
@@ -144,5 +144,35 @@ main span {
   .button-edit:hover {
     background-color: hsl(120, 51%, 42%);
     color: $text-light;
+  }
+
+}
+
+.pagination {
+  position: absolute;
+  display: flex;
+  margin: 10px;
+
+  button {
+    color: $prim-color;
+    font-size: 1rem;
+    border-radius: 1px 1px 4px 4px;
+    background-color: hsl(0, 0%, 100%);
+    border: none;
+    padding: 6px 6px;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: 0.125s ease;
+
+    &:hover, &.active:hover {
+      background-color: $sec-hover;
+      color: hsl(0, 0%, 100%);
+    }
+
+    &.active {
+      background-color: $prim-color;
+      color: hsl(0, 0%, 100%);
+    }
+
   }
 }

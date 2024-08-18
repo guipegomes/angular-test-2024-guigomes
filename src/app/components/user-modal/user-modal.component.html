@@ -1,0 +1,38 @@
+<div *ngIf="show" class="modal-overlay roboto-regular">
+  <div class="modal">
+    <h3>{{ isEdit ? 'Edit ' + user?.name : 'Add New User' }}</h3>
+    <button class="close-modal" (click)="show=!show"><i class="fa fa-close"></i></button>
+
+    <!--trocar por forms para submeter à API?-->
+    <div class="modal-content">
+      <div class="modal-item">
+        <p>Username</p>
+        <input type="text" [placeholder]="isEdit ? user?.username : 'Must be 4 to 20 characters long'">
+      </div>
+      <div class="modal-item">
+        <p>Name</p>
+        <input type="text" [placeholder]="isEdit ? user?.name : 'Full name'">
+      </div>
+      <div class="modal-item">
+        <p>Email</p>
+        <input type="text" [placeholder]="isEdit ? user?.email : 'example@mail.com'">
+      </div>
+      <div class="modal-item">
+        <p>Phone</p>
+        <input type="text" [placeholder]="isEdit ? user?.phone : 'i.e.: (000)0000-0000'">
+      </div>
+      <div class="modal-item">
+        <p>Website</p>
+        <input type="text" [placeholder]="isEdit ? user?.website : 'example.com'">
+      </div>
+      <div class="modal-item">
+        <p>City</p>
+        <input type="text" [placeholder]="isEdit ? user?.address?.city : 'City name'">
+      </div>
+      <div class="action-buttons">
+        <app-button [text]="buttonText" [iconClass]="iconClass" (click)="saveAddChanges()"></app-button>
+        <app-button text="Cancel" id="button-cancel" (click)="cancelChanges()"></app-button>
+      </div>
+    </div>
+  </div>
+</div>

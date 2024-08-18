@@ -14,6 +14,7 @@
 .action-button:hover, .action-button:focus {
   background-color: $sec-hover;
   color: $text-light;
+
   &:hover i, &:focus i {
     color: $text-light;
   }
@@ -25,6 +26,14 @@ i {
   color: $text-dark;
   transition: 0.125s ease;
 }
+
 #search-button {
   border-radius: 0px 4px 4px 0px;
+}
+
+#button-cancel {
+  background-color: hsl(0, 0, 87%);
+  &:hover {
+    background-color: $prim-color;
+  }
 }
